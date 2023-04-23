@@ -1,0 +1,6 @@
+discord
+openai
+tiktoken
+loguru
+python-dotenv
+revChatGPT
