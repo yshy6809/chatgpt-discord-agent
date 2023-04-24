@@ -8,6 +8,7 @@ class WebChatBot:
     def __init__(self):
         self.web_chat_bot = Chatbot(
             config={"access_token": os.getenv("SESSION_TOKEN"), "model": "gpt-3.5-turbo", "paid": True})
+        self.web_chat_bot.reset_chat()
 
     def chat(self, message):
         try:

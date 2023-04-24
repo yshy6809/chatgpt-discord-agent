@@ -5,10 +5,6 @@ from disc.bot_manager import bot_manager
 from disc.send_message import send_message
 from loguru import logger
 
-# intents = discord.Intents.default()
-# intents.message_content = True
-# client = discord.Client(intents=intents)
-# tree = app_commands.CommandTree(client)
 client = discord.Bot()
 
 
@@ -27,10 +23,6 @@ async def chat(ctx: ApplicationContext, *, message: str):
 
 
 @client.slash_command(name="select-model")
-# @app_commands.choices(choices=[
-#     app_commands.Choice(name="GPT-3.5 Web", value="web"),
-#     app_commands.Choice(name="GPT-4 API", value="api")
-# ])
 @option(name="model", description="select a model of bot", choices=["api", "web"])
 async def select_model(ctx: ApplicationContext, model:str):
     await ctx.response.defer()
@@ -40,13 +32,7 @@ async def select_model(ctx: ApplicationContext, model:str):
 
 
 @client.slash_command(name="select-character")
-# @app_commands.choices(choices=[
-#     app_commands.Choice(name="Normal", value="normal"),
-#     app_commands.Choice(name="Very Tsundere", value="very_tsundere"),
-#     app_commands.Choice(name="Normal Tsundere", value="normal_tsundere"),
-#     app_commands.Choice(name="SP Tsundere", value="sp_tsundere"),
-# ])
-@option(name="character", description="select a character of bot", choices=["normal", "very_tsundere", "normal_tsundere", "sp_tsundere"])
+@option(name="character", description="select a character of bot", choices=["普通", "非常傲娇", "一般傲娇", "傲娇sp", "大小姐"])
 async def select_character(ctx: ApplicationContext, character: str):
     await ctx.response.defer()
     logger.info(f"Received select from {ctx.user.name}: {character}")
