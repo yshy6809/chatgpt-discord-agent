@@ -25,3 +25,6 @@ class Memory:
 
     def set_system_prompt(self, system_prompt: str):
         self.system_message = ChatMessage(system_prompt, Role.SYSTEM)
+
+    def reset(self):
+        self.memory_buffer = []

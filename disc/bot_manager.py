@@ -16,8 +16,17 @@ class BotManager:
     def ask_api(self, message: str, session_id: str):
         return self.api_bot_map[session_id].chat(message)
 
+    def ask_api_without_memory(self, message: str, session_id: str):
+        return self.api_bot_map[session_id].chat_without_memory(message)
+
+    def reset(self, session_id: str):
+        self.api_bot_map[session_id].reset()
+
     def set_mode(self, mode: str, session_id: str):
         self.mode_map[session_id] = mode
+
+    def set_model(self, model_name: str, session_id: str):
+        self.api_bot_map[session_id].set_model(model_name)
 
     def set_character(self, character: str, session_id: str):
         self.api_bot_map[session_id].set_character(character)
