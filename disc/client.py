@@ -1,5 +1,5 @@
 import discord
-from discord import Interaction, option, ApplicationContext
+from discord import option, ApplicationContext
 
 from disc.bot_manager import bot_manager
 from disc.send_message import send_message
