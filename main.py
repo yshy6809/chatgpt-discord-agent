@@ -3,7 +3,7 @@ from datetime import date
 
 import openai
 
-from disc.client import *
+from disc.client import client
 from loguru import logger
 from dotenv import load_dotenv
 
